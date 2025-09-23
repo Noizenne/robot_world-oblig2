@@ -1,6 +1,6 @@
 public class World {
     private boolean isRaining;
-    private int day;// 1 er Mandag, 2 er Tirsdag, ..., 7 for Søndag, 8 er Mandag...
+    public int day;// 1 er Mandag, 2 er Tirsdag, ..., 7 for Søndag, 8 er Mandag...
 
     public World(int day, boolean isRaining) {
         this.day = day;
