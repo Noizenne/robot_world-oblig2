@@ -2,8 +2,8 @@ public class Robot {
     // gi robotten 4 attributter: name, batteryLevel, distancetoPark og botType
     private String name;
     private String botType;
-    private int batteryLevel;
-    private int distanceToPark;
+    private static int batteryLevel;
+    private static int distanceToPark;
 
     public Robot(String name, String botType, int batteryLevel, int distanceToPark){
         this.name=name;
@@ -21,12 +21,12 @@ public class Robot {
         initialising += "name: "+ name + "\n";
         initialising += "battery level: " + batteryLevel + "%\n";
         initialising += "distance to park: " + distanceToPark + "\n";
-        System.out.println(initialising); 
+         
         
         // Endre metoden slik at den retunerer en tekst streng som forklarer statusen til roboten
         // eksempel: Dette er bot Dancatron 4000 av type B-Bot.
         // Denne enheten har 80.0 batterikapasitet igjen og bor 1500 meter fra parken.
-        return "";}
+        return initialising;}
 
     public boolean canWalkToThePark(World world) {
         String reason;
@@ -44,7 +44,7 @@ public class Robot {
         }
 
         // Sjekk om det er søndag. Kan bare gå i parken på søndager.
-        if (world.day % 7 == 0) {
+        if (world.isSunday()) {
             reason = "the bot is not allowed in the park on sundays\n";
             System.out.println(reason);
             return false;
@@ -66,4 +66,14 @@ public class Robot {
        // bottypen må være av type B-Bot (hint .equals)
        // En bot trenger minimum 50% batterikapasitet for å være med
        // Det kan ikke være mandag. Da er danseklubben stengt.
+    public boolean canDanceAtClub(World world){
+        if(batteryLevel >= 50 && botType.equals("B-Bot") && !(world.day % 7 == 1) ){
+            System.out.println(name+ " can dance at the club");
+            return true;
+
+        }
+    System.out.println(name+ " is not allowed to dance at the club");
+    return false;
+    }
+
 }
