@@ -9,7 +9,7 @@ public class World {
 
     public boolean isSunday() {
         // Endre metoden slik at den returner true hvis det er søndag (hint: Modulo %)¨
-        if (day % 7 == 0) {
+        if (getDay()%7 == 0) {
               return true;
          }
             

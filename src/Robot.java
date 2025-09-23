@@ -2,8 +2,8 @@ public class Robot {
     // gi robotten 4 attributter: name, batteryLevel, distancetoPark og botType
     private String name;
     private String botType;
-    private static int batteryLevel;
-    private static int distanceToPark;
+    private int batteryLevel;
+    private int distanceToPark;
 
     public Robot(String name, String botType, int batteryLevel, int distanceToPark){
         this.name=name;
@@ -16,17 +16,18 @@ public class Robot {
     public String reportStatus() {
         // Metode for å rapportere statusen til robotten
         String initialising;
-        initialising = "declaring status:\n";
-        initialising += "type of bot: " + botType + "\n";
-        initialising += "name: "+ name + "\n";
-        initialising += "battery level: " + batteryLevel + "%\n";
-        initialising += "distance to park: " + distanceToPark + "\n";
-         
-        
+        initialising = "Declaring status:\n";
+        initialising += "Type of bot: " + botType + "\n";
+        initialising += "Name: "+ name + "\n";
+        initialising += "Battery level: " + batteryLevel + "%\n";
+        initialising += "Distance to park: " + distanceToPark + "\n";
+
+        System.out.println(initialising);
         // Endre metoden slik at den retunerer en tekst streng som forklarer statusen til roboten
         // eksempel: Dette er bot Dancatron 4000 av type B-Bot.
         // Denne enheten har 80.0 batterikapasitet igjen og bor 1500 meter fra parken.
-        return initialising;}
+        return initialising;
+    }
 
     public boolean canWalkToThePark(World world) {
         String reason;
@@ -57,6 +58,7 @@ public class Robot {
             System.out.println(reason);
             return false;
         }
+        System.out.println("it's able to walk to the park");
 
         return true;
     }
