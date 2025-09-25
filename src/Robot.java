@@ -22,7 +22,7 @@ public class Robot {
         initialising += "Battery level: " + batteryLevel + "%\n";
         initialising += "Distance to park: " + distanceToPark + "m\n";
 
-        System.out.println(initialising);
+        
         // Endre metoden slik at den retunerer en tekst streng som forklarer statusen til roboten
         // eksempel: Dette er bot Dancatron 4000 av type B-Bot.
         // Denne enheten har 80.0 batterikapasitet igjen og bor 1500 meter fra parken.
@@ -45,8 +45,8 @@ public class Robot {
         }
 
         // Sjekk om det er søndag. Kan bare gå i parken på søndager.
-        if (world.isSunday()) {
-            reason = name + " is not allowed in the park on sundays\n";
+        if (!world.isSunday()) {
+            reason = name + " is only allowed in the park on sundays, it's not sunday\n";
             System.out.println(reason);
             return false;
         }
@@ -58,7 +58,7 @@ public class Robot {
             System.out.println(reason);
             return false;
         }
-        System.out.println(name + " is able to walk to the park");
+        System.out.println(name + " is able to walk to the park\n");
 
         return true;
     }
