@@ -20,7 +20,7 @@ public class Robot {
         initialising += "Type of bot: " + botType + "\n";
         initialising += "Name: "+ name + "\n";
         initialising += "Battery level: " + batteryLevel + "%\n";
-        initialising += "Distance to park: " + distanceToPark + "\n";
+        initialising += "Distance to park: " + distanceToPark + "m\n";
 
         System.out.println(initialising);
         // Endre metoden slik at den retunerer en tekst streng som forklarer statusen til roboten
@@ -33,12 +33,12 @@ public class Robot {
         String reason;
         // Metode for å sjekke om roboten kan gå til parken basert på omgivelsene
 
-        System.out.println(name + " sjekker om det er mulig å gå til parken...");
+        System.out.println(name + " is checking if it's possible to go to the park..");
 
         // Sjekk om det regner
         if (world.getIsRaining()) {
             
-            reason = "it's raining, the bot can't go to the park\n";
+            reason = "It's raining" + name +" can't go to the park\n";
             System.out.println(reason);
             // skriv ut hvorfor boten ikke kan gå i parken med System.out.println
             return false;
@@ -46,7 +46,7 @@ public class Robot {
 
         // Sjekk om det er søndag. Kan bare gå i parken på søndager.
         if (world.isSunday()) {
-            reason = "the bot is not allowed in the park on sundays\n";
+            reason = name + " is not allowed in the park on sundays\n";
             System.out.println(reason);
             return false;
         }
@@ -54,11 +54,11 @@ public class Robot {
 
         // Sjekk batterinivå. En bot trenger 1% batterinivå per 100 meter for å gå til parken.
         if (distanceToPark>batteryLevel*100){
-            reason = "the bot doesn't have sufficent battery level\n";
+            reason = name + " doesn't have sufficent battery level to go to the park\n";
             System.out.println(reason);
             return false;
         }
-        System.out.println("it's able to walk to the park");
+        System.out.println(name + " is able to walk to the park");
 
         return true;
     }
