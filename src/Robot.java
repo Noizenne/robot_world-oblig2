@@ -38,7 +38,7 @@ public class Robot {
         // Sjekk om det regner
         if (world.getIsRaining()) {
             
-            reason = "It's raining" + name +" can't go to the park\n";
+            reason = "It's raining, " + name + " can't go to the park\n";
             System.out.println(reason);
             // skriv ut hvorfor boten ikke kan gå i parken med System.out.println
             return false;
@@ -74,7 +74,7 @@ public class Robot {
             return true;
 
         }
-    System.out.println(name+ " is not allowed to dance at the club");
+    System.out.println(name+ " is not allowed to dance at the club\n");
     return false;
     }
 
